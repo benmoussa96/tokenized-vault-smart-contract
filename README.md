@@ -1,6 +1,6 @@
 # ERC-4626: Tokenized Yield-Bearing Vault
 
-A yield-bearing vault is a smart contract that issues tokenized shares of a single underlying ERC-20 token and helps users find the best yield on their crypto tokens by executing different strategies.
+A yield-bearing vault is a smart contract ([`/contracts/TCGVaultFees.sol`](https://github.com/benmoussa96/tokenized-vault-smart-contract/blob/master/contracts/TCGVaultFees.sol)) that issues tokenized shares of a single underlying ERC-20 token and helps users find the best yield on their crypto tokens by executing different strategies.
 
 ## How it works
 
