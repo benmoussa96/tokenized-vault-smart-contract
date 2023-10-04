@@ -7,7 +7,7 @@ import { TCGToken, TCGVault } from "../../typechain-types";
 !developmentChains.includes(network.name)
   ? describe.skip
   : describe("TCGVault", async () => {
-      let asset: TCGToken, assetAddress: string, vault: TCGVault, deployer: SignerWithAddress;
+      let asset: TCGToken, vault: TCGVault, deployer: SignerWithAddress;
 
       beforeEach(async () => {
         const accounts = await ethers.getSigners();
@@ -15,19 +15,18 @@ import { TCGToken, TCGVault } from "../../typechain-types";
         await deployments.fixture(["all"]);
 
         asset = await ethers.getContract("TCGToken", deployer);
-        assetAddress = asset.address;
         vault = await ethers.getContract("TCGVault", deployer);
       });
 
       describe("constructor()", () => {
         it("sets the owner addresses correctly", async () => {
-          const txnResponse = await vault.getOwner();
+          const txnResponse = await vault.owner();
           expect(txnResponse).to.equal(deployer.address);
         });
 
-        it("sets the asset correctly", async () => {
-          const txnResponse = await vault.getAsset();
-          expect(txnResponse).to.include(assetAddress);
+        it("sets the underlying asset correctly", async () => {
+          const txnResponse = await vault.asset();
+          expect(txnResponse).to.include(asset.address);
         });
 
         it("sets the trseaury addresses correctly", async () => {

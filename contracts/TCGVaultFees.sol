@@ -1,26 +1,27 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC4626.sol";
+import "./TCGVaultStrategy.sol";
 
-contract TCGVaultFees is ERC4626 {
+contract TCGVaultFees is TCGVaultStrategy {
+    using Math for uint256;
+
+    uint256 private constant _BASIS_POINT_SCALE = 1e4;
+
     address public treasuryAddress;
     uint256 public feeBasisPoints;
 
     constructor(
-      IERC20 _asset, 
-      address _treasuryAddress, 
-      uint256 _feeBasisPoints, 
-      string memory _sharesName, 
-      string memory _sharesSymbol
+        IERC20 _asset, 
+        address _treasuryAddress, 
+        uint256 _feeBasisPoints, 
+        string memory _sharesName, 
+        string memory _sharesSymbol
     ) ERC4626(_asset) ERC20(_sharesName, _sharesSymbol) {
-      treasuryAddress = _treasuryAddress;
-      feeBasisPoints = _feeBasisPoints;
+        treasuryAddress = _treasuryAddress;
+        feeBasisPoints = _feeBasisPoints;
     }
-
-    using Math for uint256;
-
-    uint256 private constant _BASIS_POINT_SCALE = 1e4;
 
     // === Overrides ===
 

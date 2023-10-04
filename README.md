@@ -1,6 +1,10 @@
 # ERC-4626: Tokenized Yield-Bearing Vault
 
-A yield-bearing vault is a smart contract ([/contracts/TCGVaultFees.sol](https://github.com/benmoussa96/tokenized-vault-smart-contract/blob/master/contracts/TCGVaultFees.sol)) that issues tokenized shares of a single underlying ERC-20 token and helps users find the best yield on their crypto tokens by executing different strategies.
+A yield-bearing vault is a smart contract that issues tokenized shares of a single underlying ERC-20 token and helps users find the best yield on their crypto tokens by executing different strategies.
+
+- [/contracts/TCGVaultStrategy.sol](https://github.com/benmoussa96/tokenized-vault-smart-contract/blob/master/contracts/TCGVaultStrategy.sol)
+- [/contracts/TCGVaultFees.sol](https://github.com/benmoussa96/tokenized-vault-smart-contract/blob/master/contracts/TCGVaultFees.sol)
+- [/contracts/TCGVault.sol](https://github.com/benmoussa96/tokenized-vault-smart-contract/blob/master/contracts/TCGVault.sol)
 
 ## How it works
 
@@ -9,7 +13,7 @@ In exchange for the assets deposited into an ERC-4626 vault, a user receives sha
 - If a vault has 100 tokens to back 200 shares, then each share is worth 0.5 assets.
 - If a vault has 200 tokens to back 100 shares, then each share is worth 2.0 assets.
 
-When the vault generetes yield on the underlying asset through strategies (yield farming, lenging, staking...), the shares appreciate in value. These shares can later be burned to redeem and withdraw the corresponding assets, including any profits made.
+When the vault generetes yield on the underlying asset through strategies (farming, lenging, staking...), the shares appreciate in value. These shares can later be burned to redeem and withdraw the corresponding assets, including any profits made.
 
 ## Fees
 
@@ -17,15 +21,15 @@ In an ERC-4626 vault, fees can also be captured when users deposit and/or withdr
 
 > In this example, entry and exit fees of 0.5% are charged and trasfered to the treasury (0x477341a96a678C849119A583e81faD7C2D61DAf7).
 
-### Built with
+## Built with
 
-- TypeScript
 - Solidity
-- Yarn
-- Node.js (14.0.0)
-- Hardhat
-- Ethers
 - OpenZeppelin
+- Hardhat
+- TypeScript
+- Ethers
+- Yarn
+- Node.js
 
 ## Getting Started
 
