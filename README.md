@@ -16,3 +16,61 @@ When the vault generetes yield on the underlying asset through strategies (yield
 In an ERC-4626 vault, fees can also be captured when users deposit and/or withdraw tokens.
 
 > In this example, entry and exit fees of 0.5% are charged and trasfered to the treasury (0x477341a96a678C849119A583e81faD7C2D61DAf7).
+
+### Built with
+
+- TypeScript
+- Solidity
+- Yarn
+- Node.js (14.0.0)
+- Hardhat
+- Ethers
+- OpenZeppelin
+
+## Getting Started
+
+### Dependencies
+
+- [Alchemy](https://alchemy.com) account and API key.
+
+### Installing
+
+1. Clone the repo
+
+   ```
+   git clone https://github.com/benmoussa96/tokenized-vault-smart-contract.git
+   ```
+
+2. Change into repo root directory
+
+   ```
+   cd tokenized-vault-smart-contract
+   ```
+
+3. Install dependencies
+
+   ```
+   yarn
+   ```
+
+### Compiling and deploying new contract (optional)
+
+4.  Create a `.env` file at the root of the project. Make sure the account used is funded.
+
+    ```
+    MAINNET_RPC_URL=...
+    GOERLI_RPC_URL=...
+    PIVATE_KEY=...
+    ```
+
+5.  Deploy the contract:
+
+    ```
+    yarn hardhat deploy --network goerli
+    ```
+
+6.  Run the tests:
+
+    ```
+    yarn hardhat test
+    ```
