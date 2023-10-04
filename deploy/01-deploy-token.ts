@@ -3,7 +3,7 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { developmentChains, networkConfig } from "../helper-hardhat-config";
 import verify from "../utils/verify";
 
-const deployLock: DeployFunction = async function ({
+const deployTCGToken: DeployFunction = async function ({
   getNamedAccounts,
   deployments,
   network,
@@ -12,19 +12,21 @@ const deployLock: DeployFunction = async function ({
   const { deployer } = await getNamedAccounts();
   const chainId: number = network.config.chainId!;
 
-  let lockName;
+  let assetName, assetSymbol;
 
   if (developmentChains.includes(network.name)) {
-    lockName = "Lock on Development Network";
+    assetName = "TheChainGeniusToken";
+    assetSymbol = "TCG";
   } else {
-    lockName = networkConfig[chainId]["lockName"];
+    assetName = networkConfig[chainId]["assetName"];
+    assetSymbol = networkConfig[chainId]["assetSymbol"];
   }
 
-  const lockArgs = [lockName];
+  const tokenArgs = [assetName, assetSymbol];
 
-  const lock = await deploy("Lock", {
+  const token = await deploy("TCGToken", {
     from: deployer,
-    args: lockArgs,
+    args: tokenArgs,
     log: true,
     waitConfirmations: networkConfig[chainId]?.blockConfirmations || 1,
   });
@@ -33,9 +35,9 @@ const deployLock: DeployFunction = async function ({
     !developmentChains.includes(network.name) &&
     process.env.ETHERSCAN_API_KEY
   ) {
-    await verify(lock.address, lockArgs);
+    await verify(token.address, tokenArgs);
   }
 };
 
-export default deployLock;
-deployLock.tags = ["all", "lock"];
+export default deployTCGToken;
+deployTCGToken.tags = ["all", "token"];

@@ -1,7 +1,12 @@
 export interface NetworkConfigItem {
   name?: string;
   blockConfirmations?: number;
-  lockName?: string;
+  assetName?: string;
+  assetSymbol?: string;
+  sharesName?: string;
+  sharesSymbol?: string;
+  treasuryAddress?: string;
+  feeBasisPoints?: number;
 }
 
 export interface NetworkConfigInfo {
@@ -16,7 +21,12 @@ export const networkConfig: NetworkConfigInfo = {
   5: {
     name: "goerli",
     blockConfirmations: 6,
-    lockName: "Lock on Goerli",
+    assetName: "TheChainGeniusToken",
+    assetSymbol: "TCG",
+    sharesName: "TCGShares",
+    sharesSymbol: "sTCG",
+    treasuryAddress: "0x477341a96a678C849119A583e81faD7C2D61DAf7",
+    feeBasisPoints: 50,
   },
   137: {
     name: "polygon",
