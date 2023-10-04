@@ -15,6 +15,4 @@ When the vault generetes yield on the underlying asset through strategies (yield
 
 In an ERC-4626 vault, fees can also be captured when users deposit and/or withdraw tokens.
 
-```
-In this example, entry and exit fees of 0.5% are charged and trasfered to the treasury (0x477341a96a678C849119A583e81faD7C2D61DAf7).
-```
+> In this example, entry and exit fees of 0.5% are charged and trasfered to the treasury (0x477341a96a678C849119A583e81faD7C2D61DAf7).
