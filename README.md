@@ -2,12 +2,13 @@
 
 A yield-bearing vault is a smart contract that issues tokenized shares of a single underlying ERC-20 token and helps users find the best yield on their crypto tokens by executing different strategies.
 
-In exchange for the assets deposited into an ERC-4626 vault, a user receives shares. These shares can later be burned to redeem the corresponding underlying assets. The number of shares a user gets depends on the amount of assets they put in and on the exchange rate of the vault. This exchange rate is defined by the current liquidity held by the vault.
+In exchange for the assets deposited into an ERC-4626 vault, a user receives shares minted by the smart contract. These shares can later be burned to redeem and withdraw the corresponding underlying assets. The number of shares a user gets depends on the amount of assets they put in and on the exchange rate of the vault. This exchange rate is defined by the current liquidity held by the vault.
 
 - If a vault has 100 tokens to back 200 shares, then each share is worth 0.5 assets.
 - If a vault has 200 tokens to back 100 shares, then each share is worth 2.0 assets.
 
-In an ERC-4626 vault, fees can also be captured during when users deposit/mint and/or withdraw/redeem tokens. In this example, 0.5% entry and exit fees are charged and trasfered to the treasury (0x477341a96a678C849119A583e81faD7C2D61DAf7).
+In an ERC-4626 vault, fees can also be captured when users deposit and/or withdraw tokens.
+In this example, entry and exit fees of `0.5%` are charged and trasfered to the treasury `0x477341a96a678C849119A583e81faD7C2D61DAf7`.
 
 ## Sample Hardhat Project
 
