@@ -23,7 +23,9 @@ contract TCGVaultFees is TCGVaultStrategy {
         feeBasisPoints = _feeBasisPoints;
     }
 
-    // === Overrides ===
+    /** 
+     * Overrides 
+     */
 
     /// @dev Preview taking an entry fee on deposit. See {IERC4626-previewDeposit}.
     function previewDeposit(uint256 assets) public view virtual override returns (uint256) {
@@ -79,7 +81,9 @@ contract TCGVaultFees is TCGVaultStrategy {
         }
     }
 
-    // === Fee configuration ===
+    /** 
+     * Fee configuration 
+     */
 
     function _entryFeeBasisPoints() internal view virtual returns (uint256) {
         return feeBasisPoints;
@@ -97,7 +101,9 @@ contract TCGVaultFees is TCGVaultStrategy {
         return treasuryAddress;
     }
 
-    // === Fee operations ===
+    /** 
+     * Fee operations 
+     */
 
     /// @dev Calculates the fees that should be added to an amount `assets` that does not already include fees.
     /// Used in {IERC4626-mint} and {IERC4626-withdraw} operations.
@@ -109,5 +115,13 @@ contract TCGVaultFees is TCGVaultStrategy {
     /// Used in {IERC4626-deposit} and {IERC4626-redeem} operations.
     function _feeOnTotal(uint256 assets, uint256 fee) private pure returns (uint256) {
         return assets.mulDiv(fee, fee + _BASIS_POINT_SCALE, Math.Rounding.Up);
+    }
+
+    function setFeeBasisPoints(uint256 _fee) internal virtual {
+      feeBasisPoints = _fee;
+    }
+
+    function setTreasuryAddress(address _treasuryAddress) internal virtual {
+      treasuryAddress = _treasuryAddress;
     }
 }

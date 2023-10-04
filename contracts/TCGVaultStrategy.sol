@@ -5,6 +5,10 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC4626.sol";
 
 abstract contract TCGVaultStrategy is ERC4626 {
 
+    /** 
+     * Overrides 
+     */
+
     /** @dev See {IERC4626-deposit}. */
     function deposit(uint256 assets, address receiver) public virtual override returns (uint256) {
         require(assets <= maxDeposit(receiver), "ERC4626: deposit more than max");

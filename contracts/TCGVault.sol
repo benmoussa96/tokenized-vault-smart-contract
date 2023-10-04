@@ -23,13 +23,9 @@ contract TCGVault is TCGVaultFees {
     ) TCGVaultFees(_asset, _treasuryAddress, _feeBasisPoints, _sharesName, _sharesSymbol) {
         i_owner = payable(msg.sender);
     }
-    
-    function owner() public view returns (address) {
-      return i_owner;
-    }
 
     /** 
-     * Internal strategy logic for generating yield goes in the two functions bellow
+     * You can override the internal strategy logic for generating yield bellow
      */
 
      function beforeWithdraw(uint256 assets, uint256 shares) internal override {
@@ -39,5 +35,21 @@ contract TCGVault is TCGVaultFees {
      function afterDeposit(uint256 assets, uint256 shares) internal override {
       
      }
+
+    /** 
+     * Setters and Getters
+     */
+
+    function _setFeeBasisPoints(uint256 _fee) public onlyOwner {
+      setFeeBasisPoints(_fee);
+    }
+
+    function _setTreasuryAddress(address _treasuryAddress) public onlyOwner {
+      setTreasuryAddress(_treasuryAddress);
+    }
+    
+    function owner() public view returns (address) {
+      return i_owner;
+    }
 }
  
