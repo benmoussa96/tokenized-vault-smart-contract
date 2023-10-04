@@ -9,10 +9,12 @@ In exchange for the assets deposited into an ERC-4626 vault, a user receives sha
 - If a vault has 100 tokens to back 200 shares, then each share is worth 0.5 assets.
 - If a vault has 200 tokens to back 100 shares, then each share is worth 2.0 assets.
 
-When the vault generetes yield on the underlying asset through strategies (yield farming, lenging, staking...), the shares appreciate in value. These shares can later be burned to redeem and withdraw the corresponding underlying assets, including any profits made.
+When the vault generetes yield on the underlying asset through strategies (yield farming, lenging, staking...), the shares appreciate in value. These shares can later be burned to redeem and withdraw the corresponding assets, including any profits made.
 
 ## Fees
 
 In an ERC-4626 vault, fees can also be captured when users deposit and/or withdraw tokens.
 
-In this example, entry and exit fees of `0.5%` are charged and trasfered to the treasury `0x477341a96a678C849119A583e81faD7C2D61DAf7`.
+```
+In this example, entry and exit fees of 0.5% are charged and trasfered to the treasury (0x477341a96a678C849119A583e81faD7C2D61DAf7).
+```
